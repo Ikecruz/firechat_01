@@ -1,0 +1,47 @@
+*:hover, *:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+
+.login-container{
+    height: 100vh;
+}
+
+.login-contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    background: whitesmoke;
+}
+
+.login-card{
+    border: 1px solid #e0e0e0;
+    width: 350px;
+    max-height: 300px;
+}
+
+.login-card .err{
+    color: red;
+    font-size: .9em;
+}
+
+.login-header{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.login-body{
+    overflow-y: auto;
+}
+
+.labels-contain{
+    height: 12vh;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    padding: 10px;
+}
+
+.link{
+    font-weight: 900;
+}
