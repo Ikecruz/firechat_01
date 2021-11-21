@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import {startSession as ss} from '../data/functions.js';
+
 export default {
     data() {
         return{
@@ -48,7 +50,9 @@ export default {
                 return;
             }
             
-            
+            if (ss(btoa(this.userName))) {
+                this.$router.push('/chat');
+            }
         }
     }
 }
