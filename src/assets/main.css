@@ -92,6 +92,7 @@
     margin: 10px 0;
     padding: 5px 0;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -100,7 +101,7 @@
 }
 
 .chat-body .message.user{
-    align-items: end;
+    align-items: flex-end;
 }
 
 .chat-body .message .message-box{
@@ -108,6 +109,8 @@
     padding: 7px 10px;
     border-radius: 5px;
     background: whitesmoke;
+    word-break: break-all;
+    -ms-word-break: break-all;
 }
 
 .chat-body .message.user .message-box{

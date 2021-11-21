@@ -11,6 +11,7 @@
                         {{msg.content}}
                     </div>
                 </div>
+                <p class="m-0" id="scroll"></p>
             </div>
             <div class="chat-footer p-3">
                 <form action="" @submit.prevent="sendMessage">
@@ -28,7 +29,7 @@
 import {validateLogin as vl} from '../data/functions.js'
 import {sendMessage as sm } from '../firebase/funcs'
 import db from "../firebase/db.js"
-import { ref, set, onValue } from "firebase/database"
+import { ref, onValue } from "firebase/database"
 
 export default {
     data() {
@@ -54,9 +55,25 @@ export default {
             let message = {
                 name: this.userName,
                 content: this.inputMessage,
+                updated_at: Date.now(),
             };
             sm(message);
             this.inputMessage = '';
+        },
+        sortMsg(msg){
+            msg.sort(function(a, b) {
+            var keyA = a.updated_at,
+                keyB = b.updated_at;
+            // Compare the 2 dates
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+            });
+        },
+        scrollView(){
+            let mesg = document.getElementById("scroll");
+
+            mesg.scrollIntoView({ behavior: 'smooth', block: 'start'});
         },
         getMessages(){
             const messagesRef = ref(db, 'messages');
@@ -64,19 +81,19 @@ export default {
                 const data = snapshot.val();
                 let messages = [];
 
-                // console.log(data);
                 Object.keys(data).forEach(key => {
                     messages.push(
                         {
                             id: key,
                             name: data[key].name,
                             content: data[key].content,
+                            updated_at: data[key].updated_at,
                         }
                     )
                 })
-                
+                this.sortMsg(messages);
                 this.messages = messages;
-
+                this.scrollView();
             });
         }
     },
@@ -84,6 +101,11 @@ export default {
         this.checkLog();
         this.getMessages();
     },
+    watch: {
+        messages(){
+            this.scrollView();
+        }
+    }
     
 }
 </script>
