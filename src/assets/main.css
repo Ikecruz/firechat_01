@@ -3,6 +3,20 @@
     box-shadow: none !important;
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(8, 8, 8, 0.58);
+    transition: all 0.15s ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+
 .login-container{
     height: 100vh;
 }
@@ -44,4 +58,59 @@
 
 .link{
     font-weight: 900;
+}
+
+.chat-contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: whitesmoke;
+}
+
+.chat-card{
+    width: 350px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 2px;
+}
+
+.chat-card .chat-header{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.chat-card .chat-body{
+    height: 55vh;
+    overflow-y: auto;
+}
+
+.chat-card .chat-footer{
+    border-top: 1px solid #e0e0e0;
+}
+
+.chat-body .message{
+    margin: 10px 0;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-body .message .name{
+    font-size: .9em;
+}
+
+.chat-body .message.user{
+    align-items: end;
+}
+
+.chat-body .message .message-box{
+    max-width: 200px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: whitesmoke;
+}
+
+.chat-body .message.user .message-box{
+    background: #222222;
+    color: white;
 }
