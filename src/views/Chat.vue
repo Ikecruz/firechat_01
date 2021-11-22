@@ -99,6 +99,7 @@ export default {
     },
     mounted() {
         this.checkLog();
+        document.title = "Messages | ChatBuds"
         this.getMessages();
     },
     watch: {

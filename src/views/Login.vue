@@ -3,7 +3,7 @@
         <div class="login-contain">
             <div class="login-card bg-white">
                 <div class="login-header p-3 text-center">
-                    <p class="m-0">CHAT MATE</p>
+                    <p class="m-0">CHAT BUDS</p>
                 </div>
                 <div class="login-body p-3">
                     <p class="mb-3">Enter Username to chat with Mates</p>
@@ -54,6 +54,9 @@ export default {
                 this.$router.push('/chat');
             }
         }
+    },
+    mounted() {
+        document.title = "Login | ChatBuds";
     }
 }
 </script>
