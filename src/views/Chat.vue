@@ -42,7 +42,7 @@ export default {
     methods: {
         checkLog(){
             if (vl()) {
-                this.userName = vl();
+                this.userName = atob(vl());
             } else{
                 this.$router.push('/');
             }
