@@ -56,7 +56,7 @@ export default {
         }
     },
     mounted() {
-        document.title = "Login | ChatBuds";
+        // document.title = "Login | ChatBuds";
     }
 }
 </script>
