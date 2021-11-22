@@ -50,7 +50,7 @@ export default {
                 return;
             }
             
-            if (ss(btoa(this.userName))) {
+            if (ss(this.userName)) {
                 this.$router.push('/chat');
             }
         }
