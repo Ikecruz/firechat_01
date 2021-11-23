@@ -4,7 +4,7 @@
             <div class="chat-header p-3">
                 <p class="mb-0">Welcome {{userName}}</p>
             </div>
-            <div class="chat-body p-3">
+            <div class="chat-body p-3" id="chat-body">
                 <div class="message" :class="{ 'user' : msg.name === userName }" v-for="msg in messages" :key="msg.key">
                     <p class="mb-1 name">{{msg.name}}</p>
                     <div class="message-box">
@@ -73,6 +73,7 @@ export default {
             let mesg = document.getElementById("scroll");
 
             mesg.scrollIntoView({ behavior: 'smooth', block: 'start'});
+
         },
         getMessages(){
             const messagesRef = ref(db, 'messages');
